@@ -22,6 +22,19 @@ const userController = {
             console.log(err);
             res.status(400)
         })
+    },
+
+    getUserById({params}, res) {
+        User.findOne({ _id: params.userId })
+        .populate({
+            path: 'thoughts',
+            select: ['thoughtText']
+        })
+        .then(dbUserData => res.json(dbUserData))
+        .catch(err => {
+            console.log(err);
+            res.status(400);
+        })
     }
 }
 

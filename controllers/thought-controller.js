@@ -7,8 +7,8 @@ const thoughtController = {
     getAllThoughts(req, res) {
         Thought.find({})
         .populate({
-            path: 'reactions',
-            select: '-__v'
+            path: 'user',
+            select: 'username',
         })
         .select('-__v')
         .sort({ _id: -1 })
@@ -37,7 +37,9 @@ const thoughtController = {
             res.json(dbThoughtData);
         })
         .catch(err => res.json(err));
-    }
+    },
+
+
 };
 
 module.exports = thoughtController;

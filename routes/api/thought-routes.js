@@ -21,7 +21,7 @@ router
     .get(getAllThoughts)
 
 router
-    .route('/:id')
+    .route('/:userId')
     .post(addThought)
     
 module.exports = router;

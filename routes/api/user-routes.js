@@ -12,12 +12,17 @@ const router = require('express').Router();
 
 const {
     addUser,
-    getUsers
+    getUsers,
+    getUserById
 } = require('../../controllers/user-controller');
 
 router
     .route('/')
     .get(getUsers)
     .post(addUser)
+
+router
+    .route('/:userId')
+    .get(getUserById)
 
 module.exports = router;
