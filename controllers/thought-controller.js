@@ -2,7 +2,6 @@ const { Thought } = require('../models');
 const User = require('../models/User');
 
 const thoughtController = {
-
     // methods
     getAllThoughts(req, res) {
         Thought.find({})
@@ -79,8 +78,6 @@ const thoughtController = {
             res.json(err);
         });
     },
-
-
 
     addReaction({ params, body }, res) {
         Thought.findOneAndUpdate(
